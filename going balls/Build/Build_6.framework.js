@@ -6741,7 +6741,6 @@ code.google.com/p/crypto-js/wiki/License
     http.onerror = null;
     http.ontimeout = null;
     http.onabort = null;
-    delete http;
     wr.requestInstances[request] = null
   }
 
