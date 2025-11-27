@@ -25591,16 +25591,16 @@ cr.plugins_.SkymenSFPlusPLus = function(runtime)
 		this.runtime = plugin.runtime;
 	};
 	var typeProto = pluginProto.Type.prototype;
-	typeProto.onCreate = function()
-	{
-		if (this.is_family)
-			return;
-		this.texture_img = new Image();
-		this.texture_img["idtkLoadDisposed"] = true;
-		this.texture_img.src = this.texture_file;
-		this.runtime.wait_for_textures.push(this.texture_img);
-		this.webGL_texture = null;
-	};
+typeProto.onCreate = function()
+{
+	if (this.is_family)
+		return;
+	this.texture_img = new Image();
+	this.texture_img["idtkLoadDisposed"] = true;
+	this.runtime.setImageSrc(this.texture_img, this.texture_file); 
+	this.runtime.wait_for_textures.push(this.texture_img);
+	this.webGL_texture = null;
+};
 	typeProto.onLostWebGLContext = function ()
 	{
 		if (this.is_family)
@@ -37559,9 +37559,7 @@ cr.plugins_.rojoPaster = function(runtime)
 			}
             self.runtime.redraw = true;
         }
-        if (url_.substr(0, 5) !== "data:")
-            img.crossOrigin = 'anonymous';
-        img.src = url_;
+self.runtime.setImageSrc(img, url_);
     };
 	Acts.prototype.LoadCanvas = function ()
 	{
