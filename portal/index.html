@@ -3,7 +3,6 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>yikes!</title>
-  <!-- Service worker removed - causes CORS issues -->
   <style>
     body {
       font-family: arial;
@@ -133,18 +132,15 @@
   <textarea id="output" rows="8"></textarea>
 
   <script type='text/javascript'>
-    // CORS Worker Fix - intercept Worker constructor
     (function() {
       const OriginalWorker = window.Worker;
       window.Worker = function(scriptURL, options) {
-        // If it's a cross-origin URL, fetch and create blob worker
         if (typeof scriptURL === 'string' && 
             (scriptURL.startsWith('http://') || scriptURL.startsWith('https://')) &&
             !scriptURL.includes(window.location.hostname)) {
           
           console.log('Proxying worker:', scriptURL);
           
-          // Return a promise-like worker (hacky but works for most cases)
           const workerPromise = fetch(scriptURL)
             .then(response => response.text())
             .then(text => {
@@ -157,10 +153,8 @@
               throw err;
             });
           
-          // For synchronous Worker usage, we need a different approach
-          // Try to make it work with the blob URL approach
           const xhr = new XMLHttpRequest();
-          xhr.open('GET', scriptURL, false); // Synchronous
+          xhr.open('GET', scriptURL, false); 
           try {
             xhr.send();
             if (xhr.status === 200) {
@@ -242,6 +236,6 @@
       };
     };
   </script>
-  <script async type="text/javascript" src="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/portal/hl2_launcher.js"></script>
+  <script async type="text/javascript" src="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/portal/hl4_launcher.js"></script>
 </body>
 </html>
