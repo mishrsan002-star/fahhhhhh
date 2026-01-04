@@ -4754,28 +4754,40 @@ function _isIpad() {
     {
       var loaderC2logo_1024 = new Image();
       loaderC2logo_1024.src = "";
+      loaderC2logo_1024.crossOrigin = "anonymous";
       var loaderC2logo_512 = new Image();
       loaderC2logo_512.src = "";
+      loaderC2logo_512.crossOrigin = "anonymous";
       var loaderC2logo_256 = new Image();
       loaderC2logo_256.src = "";
+      loaderC2logo_256.crossOrigin = "anonymous";
       var loaderC2logo_128 = new Image();
       loaderC2logo_128.src = "";
+      loaderC2logo_128.crossOrigin = "anonymous";
       var loaderPowered_1024 = new Image();
       loaderPowered_1024.src = "";
+      loaderPowered_1024.crossOrigin = "anonymous";
       var loaderPowered_512 = new Image();
+      loaderPowered_512.crossOrigin = "anonymous";
       loaderPowered_512.src = "";
       var loaderPowered_256 = new Image();
       loaderPowered_256.src = "";
+      loaderPowered_256.crossOrigin = "anonymous";
       var loaderPowered_128 = new Image();
       loaderPowered_128.src = "";
+      loaderPowered_128.crossOrigin = "anonymous";
       var loaderWebsite_1024 = new Image();
       loaderWebsite_1024.src = "";
+      loaderWebsite_1024.crossOrigin = "anonymous";
       var loaderWebsite_512 = new Image();
       loaderWebsite_512.src = "";
+      loaderWebsite_512.crossOrigin = "anonymous";
       var loaderWebsite_256 = new Image();
       loaderWebsite_256.src = "";
+      loaderWebsite_256.crossOrigin = "anonymous";
       var loaderWebsite_128 = new Image();
       loaderWebsite_128.src = "";
+      loaderWebsite_128.crossOrigin = "anonymous";
       this.loaderlogos = {
         logo: [loaderC2logo_1024, loaderC2logo_512, loaderC2logo_256, loaderC2logo_128],
         powered: [loaderPowered_1024, loaderPowered_512, loaderPowered_256, loaderPowered_128],
@@ -23528,6 +23540,7 @@ cr.plugins_.Sprite = function(runtime) {
           frameobj.texture_img = wt;
         } else {
           frameobj.texture_img = new Image();
+          frameobj.texture_img.crossOrigin = "anonymous";
           frameobj.texture_img.cr_src = frame[0];
           frameobj.texture_img.cr_filesize = frame[1];
           frameobj.texture_img.c2webGL_texture = null;
@@ -24423,6 +24436,7 @@ cr.plugins_.Sprite = function(runtime) {
   };
   Acts.prototype.LoadURL = function(url_, resize_, crossOrigin_) {
     var img = new Image();
+    img.crossOrigin = "anonymous";
     var self = this;
     var curFrame_ = this.curFrame;
     img.onload = function() {
@@ -24532,6 +24546,7 @@ cr.plugins_.SpriteFontPlus = function(runtime) {
     if (this.is_family)
       return;
     this.texture_img = new Image();
+    this.texture_img.crossOrigin = "anonymous";
     this.texture_img["idtkLoadDisposed"] = true;
     this.texture_img.src = this.texture_file;
     this.runtime.wait_for_textures.push(this.texture_img);
@@ -25792,6 +25807,7 @@ cr.plugins_.TiledBg = function(runtime) {
     if (this.is_family)
       return;
     this.texture_img = new Image();
+    this.texture_img.crossOrigin = "anonymous";
     this.texture_img.cr_filesize = this.texture_filesize;
     this.runtime.waitForImageLoad(this.texture_img, this.texture_file);
     this.pattern = null;
@@ -25915,6 +25931,7 @@ cr.plugins_.TiledBg = function(runtime) {
   };
   Acts.prototype.LoadURL = function(url_, crossOrigin_) {
     var img = new Image();
+    img.crossOrigin = "anonymous";
     var self = this;
     img.onload = function() {
       self.texture_img = img;
