@@ -1718,11 +1718,11 @@ self.JobSchedulerDOM = class {
 "use strict";
 window.C3_IsSupported && (window.c3_runtimeInterface = new self.RuntimeInterface({
   useWorker: !0,
-  workerMainUrl: "workermain.js",
-  engineScripts: ["scripts/c3runtime.js"],
+  workerMainUrl: "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/throw-a-patata-space/workermain.js",
+  engineScripts: ["https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/throw-a-patata-space/scripts/c3runtime.js"],
   projectScripts: [],
   mainProjectScript: "",
-  scriptFolder: "scripts/",
+  scriptFolder: "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/throw-a-patata-space/scripts/",
   workerDependencyScripts: ["box2d.wasm.js"],
   exportType: "html5"
 }));
